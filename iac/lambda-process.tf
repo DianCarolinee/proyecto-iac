@@ -7,7 +7,7 @@ data "archive_file" "lambda_process" {
 resource "aws_iam_role" "lambda_process_exec_role" {
   name = "${var.lambda_function_name}_exec_role"
   assume_role_policy = jsonencode({
-    Version = "2012-10-17"
+    Version = "2012-10-17",
     Statement = [{
       Action = "sts:AssumeRole",
       Effect = "Allow",
@@ -90,6 +90,18 @@ resource "aws_lambda_function" "process" {
   tags = {
     Name        = var.lambda_function_name
     Environment = "dev"
+  }
+
+  depends_on = [aws_cloudwatch_log_group.lambda_logs]
+}
+
+resource "aws_cloudwatch_log_group" "lambda_logs" {
+  name              = "/aws/lambda/${var.lambda_function_name}"
+  retention_in_days = 7
+
+  tags = {
+    Environment = "dev"
+    Function    = var.lambda_function_name
   }
 }
 
