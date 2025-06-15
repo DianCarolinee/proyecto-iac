@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<testsuites disabled="0" errors="0" failures="35" tests="72" time="0.0">
-	<testsuite disabled="0" errors="0" failures="35" name="terraform scan" skipped="0" tests="72" time="0">
+<testsuites disabled="0" errors="0" failures="10" tests="253" time="0.0">
+	<testsuite disabled="0" errors="0" failures="10" name="terraform scan" skipped="0" tests="253" time="0">
 		<properties>
 			<property name="directory" value="['/app']"/>
 			<property name="add_check" value="False"/>
@@ -37,840 +37,409 @@
 			<property name="secrets_history_timeout" value="12h"/>
 			<property name="custom_tool_name" value="Checkov"/>
 		</properties>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/imagens3.tf.aws_kms_key.s3_kms_key" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/imagens3.tf.aws_kms_key.s3_kms_key" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/imagens3.tf.aws_kms_key.s3_kms_key" file="/imagens3.tf"/>
 		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/imagens3.tf.aws_s3_bucket_public_access_block.public_access" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/imagens3.tf.aws_s3_bucket_public_access_block.public_access" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/imagens3.tf.aws_s3_bucket_public_access_block.public_access" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_55] Ensure S3 bucket has ignore public ACLs enabled" classname="/imagens3.tf.aws_s3_bucket_public_access_block.public_access" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_300] Ensure S3 lifecycle configuration sets period for aborting failed uploads" classname="/imagens3.tf.aws_s3_bucket_lifecycle_configuration.lifecycle" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/imagens3.tf.aws_iam_role.replication" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_60] Ensure IAM role allows only specific services or principals to assume it" classname="/imagens3.tf.aws_iam_role.replication" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_61] Ensure AWS IAM policy does not allow assume role permission across all services" classname="/imagens3.tf.aws_iam_role.replication" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/imagens3.tf.aws_iam_policy.replication" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/imagens3.tf.aws_iam_policy.replication" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/imagens3.tf.aws_iam_role_policy_attachment.replication" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/lambda-process.tf.aws_kms_key.lambda_code_signing_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/lambda-process.tf.aws_kms_key.lambda_code_signing_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/lambda-process.tf.aws_kms_key.lambda_code_signing_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/lambda-process.tf.aws_kms_key.dynamodb_kms_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/lambda-process.tf.aws_kms_key.dynamodb_kms_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/lambda-process.tf.aws_kms_key.dynamodb_kms_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/lambda-process.tf.aws_kms_key.lambda_dlq_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/lambda-process.tf.aws_kms_key.lambda_dlq_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/lambda-process.tf.aws_kms_key.lambda_dlq_key" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda-process.tf.aws_iam_role.lambda_process_exec_role" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_60] Ensure IAM role allows only specific services or principals to assume it" classname="/lambda-process.tf.aws_iam_role.lambda_process_exec_role" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_61] Ensure AWS IAM policy does not allow assume role permission across all services" classname="/lambda-process.tf.aws_iam_role.lambda_process_exec_role" file="/lambda-process.tf"/>
-		<testcase name="[NONE][CKV_AWS_288] Ensure IAM policies does not allow data exfiltration" classname="/lambda-process.tf.aws_iam_policy.lambda_policy_process" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_119] Ensure DynamoDB Tables are encrypted using a KMS Customer Managed CMK" classname="/lambda-process.tf.aws_dynamodb_table.vision_clean_images" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_28] Ensure DynamoDB point in time recovery (backup) is enabled" classname="/lambda-process.tf.aws_dynamodb_table.vision_clean_images" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda-process.tf.aws_iam_policy.lambda_policy_process" file="/lambda-process.tf"/>
-		<testcase name="[NONE][CKV_AWS_287] Ensure IAM policies does not allow credentials exposure" classname="/lambda-process.tf.aws_iam_policy.lambda_policy_process" file="/lambda-process.tf"/>
-		<testcase name="[NONE][CKV_AWS_289] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/lambda-process.tf.aws_iam_policy.lambda_policy_process" file="/lambda-process.tf"/>
-		<testcase name="[NONE][CKV_AWS_290] Ensure IAM policies does not allow write access without constraints" classname="/lambda-process.tf.aws_iam_policy.lambda_policy_process" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda-process.tf.aws_iam_policy.lambda_policy_process" file="/lambda-process.tf"/>
-		<testcase name="[NONE][CKV_AWS_286] Ensure IAM policies does not allow privilege escalation" classname="/lambda-process.tf.aws_iam_policy.lambda_policy_process" file="/lambda-process.tf"/>
-		<testcase name="[NONE][CKV_AWS_355] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/lambda-process.tf.aws_iam_policy.lambda_policy_process" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/lambda-process.tf.aws_kms_key.lambda_env_vars_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/lambda-process.tf.aws_kms_key.lambda_env_vars_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/lambda-process.tf.aws_kms_key.lambda_env_vars_key" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda-process.tf.aws_iam_role_policy_attachment.lambda_policy_attachment_process" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_168] Ensure SQS queue policy is not public by only allowing specific services or principals to access it" classname="/lambda-process.tf.aws_sqs_queue.lambda_dlq" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/lambda-process.tf.aws_sqs_queue.lambda_dlq" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_363] Ensure Lambda Runtime is not deprecated" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_272] Ensure AWS Lambda function is configured to validate code-signing" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_45] Ensure no hard-coded secrets exist in lambda environment" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_117] Ensure that AWS Lambda function is configured inside a VPC" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_115] Ensure that AWS Lambda function is configured for function-level concurrent execution limit" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_116] Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_50] X-Ray tracing is enabled for Lambda" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_173] Check encryption settings for Lambda environmental variable" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_66] Ensure that CloudWatch Log Group specifies retention days" classname="/lambda-process.tf.aws_cloudwatch_log_group.lambda_logs" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/lambda-process.tf.aws_cloudwatch_log_group.lambda_logs" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/lambda-process.tf.aws_kms_key.cloudwatch_logs_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/lambda-process.tf.aws_kms_key.cloudwatch_logs_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/lambda-process.tf.aws_kms_key.cloudwatch_logs_key" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_301] Ensure that AWS Lambda function is not publicly accessible" classname="/lambda-process.tf.aws_lambda_permission.allow_s3" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV_AWS_364] Ensure that AWS Lambda function permissions delegated to AWS services are limited by SourceArn or SourceAccount" classname="/lambda-process.tf.aws_lambda_permission.allow_s3" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV_AWS_108] Ensure IAM policies does not allow data exfiltration" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_107] Ensure IAM policies does not allow credentials exposure" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_109] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_1] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_111] Ensure IAM policies does not allow write access without constraints" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_358] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_283] Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_356] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_49] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_110] Ensure IAM policies does not allow privilege escalation" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_108] Ensure IAM policies does not allow data exfiltration" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_107] Ensure IAM policies does not allow credentials exposure" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_109] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_1] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_111] Ensure IAM policies does not allow write access without constraints" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_358] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_283] Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_356] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_49] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_110] Ensure IAM policies does not allow privilege escalation" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
 		<testcase name="[NONE][CKV_AWS_363] Ensure Lambda Runtime is not deprecated" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_272] Ensure AWS Lambda function is configured to validate code-signing" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf"/>
 		<testcase name="[NONE][CKV_AWS_45] Ensure no hard-coded secrets exist in lambda environment" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_117] Ensure that AWS Lambda function is configured inside a VPC" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_115] Ensure that AWS Lambda function is configured for function-level concurrent execution limit" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_116] Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_50] X-Ray tracing is enabled for Lambda" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_173] Check encryption settings for Lambda environmental variable" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_168] Ensure SQS queue policy is not public by only allowing specific services or principals to access it" classname="/lambda_auditoria.tf.aws_sqs_queue.auditoria_queue" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/lambda_auditoria.tf.aws_sqs_queue.auditoria_queue" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_168] Ensure SQS queue policy is not public by only allowing specific services or principals to access it" classname="/lambda_auditoria.tf.aws_sqs_queue.auditoria_dlq" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/lambda_auditoria.tf.aws_sqs_queue.auditoria_dlq" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/lambda_auditoria.tf.aws_kms_key.lambda_env_vars_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/lambda_auditoria.tf.aws_kms_key.lambda_env_vars_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/lambda_auditoria.tf.aws_kms_key.lambda_env_vars_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/lambda_auditoria.tf.aws_kms_key.sqs_queue_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/lambda_auditoria.tf.aws_kms_key.sqs_queue_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/lambda_auditoria.tf.aws_kms_key.sqs_queue_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/lambda_auditoria.tf.aws_kms_key.lambda_dlq_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/lambda_auditoria.tf.aws_kms_key.lambda_dlq_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/lambda_auditoria.tf.aws_kms_key.lambda_dlq_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda_auditoria.tf.aws_iam_role_policy_attachment.lambda_vpc_policy_attachment" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda_auditoria.tf.aws_iam_role_policy_attachment.lambda_xray_policy_attachment" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda_auditoria.tf.aws_iam_policy.lambda_auditoria_dlq_policy" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda_auditoria.tf.aws_iam_policy.lambda_auditoria_dlq_policy" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda_auditoria.tf.aws_iam_role_policy_attachment.lambda_auditoria_dlq_attachment" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda_auditoria.tf.aws_iam_policy.lambda_auditoria_queue_policy" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda_auditoria.tf.aws_iam_policy.lambda_auditoria_queue_policy" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda_auditoria.tf.aws_iam_role_policy_attachment.lambda_auditoria_queue_policy_attachment" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV_AWS_108] Ensure IAM policies does not allow data exfiltration" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_107] Ensure IAM policies does not allow credentials exposure" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_109] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_1] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_111] Ensure IAM policies does not allow write access without constraints" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_358] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_283] Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_356] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_49] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_110] Ensure IAM policies does not allow privilege escalation" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
 		<testcase name="[NONE][CKV_AWS_363] Ensure Lambda Runtime is not deprecated" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_272] Ensure AWS Lambda function is configured to validate code-signing" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf"/>
 		<testcase name="[NONE][CKV_AWS_45] Ensure no hard-coded secrets exist in lambda environment" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_117] Ensure that AWS Lambda function is configured inside a VPC" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_115] Ensure that AWS Lambda function is configured for function-level concurrent execution limit" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_116] Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_50] X-Ray tracing is enabled for Lambda" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_173] Check encryption settings for Lambda environmental variable" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_168] Ensure SQS queue policy is not public by only allowing specific services or principals to access it" classname="/lambda_empleado.tf.aws_sqs_queue.empleado_dlq" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/lambda_empleado.tf.aws_sqs_queue.empleado_dlq" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda_empleado.tf.aws_iam_policy.lambda_empleado_dlq_policy" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda_empleado.tf.aws_iam_policy.lambda_empleado_dlq_policy" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda_empleado.tf.aws_iam_role_policy_attachment.lambda_empleado_dlq_attachment" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV_AWS_108] Ensure IAM policies does not allow data exfiltration" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_107] Ensure IAM policies does not allow credentials exposure" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_109] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_1] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_111] Ensure IAM policies does not allow write access without constraints" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_358] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_283] Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_356] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_49] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_110] Ensure IAM policies does not allow privilege escalation" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_108] Ensure IAM policies does not allow data exfiltration" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_107] Ensure IAM policies does not allow credentials exposure" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_109] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_1] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_111] Ensure IAM policies does not allow write access without constraints" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_358] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_283] Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_356] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_49] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_110] Ensure IAM policies does not allow privilege escalation" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
 		<testcase name="[NONE][CKV_AWS_168] Ensure SQS queue policy is not public by only allowing specific services or principals to access it" classname="/lambda_nomina.tf.aws_sqs_queue.auditoria_queue" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/lambda_nomina.tf.aws_sqs_queue.auditoria_queue" file="/lambda_nomina.tf"/>
 		<testcase name="[NONE][CKV_AWS_363] Ensure Lambda Runtime is not deprecated" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_272] Ensure AWS Lambda function is configured to validate code-signing" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf"/>
 		<testcase name="[NONE][CKV_AWS_45] Ensure no hard-coded secrets exist in lambda environment" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_117] Ensure that AWS Lambda function is configured inside a VPC" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_115] Ensure that AWS Lambda function is configured for function-level concurrent execution limit" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_116] Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_50] X-Ray tracing is enabled for Lambda" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_173] Check encryption settings for Lambda environmental variable" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_168] Ensure SQS queue policy is not public by only allowing specific services or principals to access it" classname="/lambda_nomina.tf.aws_sqs_queue.nomina_dlq" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/lambda_nomina.tf.aws_sqs_queue.nomina_dlq" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/lambda_nomina.tf.aws_kms_key.lambda_env_vars_key" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/lambda_nomina.tf.aws_kms_key.lambda_env_vars_key" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/lambda_nomina.tf.aws_kms_key.lambda_env_vars_key" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/lambda_nomina.tf.aws_kms_key.sqs_queue_key" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/lambda_nomina.tf.aws_kms_key.sqs_queue_key" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/lambda_nomina.tf.aws_kms_key.sqs_queue_key" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda_nomina.tf.aws_iam_role_policy_attachment.lambda_vpc_policy_attachment" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda_nomina.tf.aws_iam_role_policy_attachment.lambda_xray_policy_attachment" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda_nomina.tf.aws_iam_policy.lambda_nomina_dlq_policy" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda_nomina.tf.aws_iam_policy.lambda_nomina_dlq_policy" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda_nomina.tf.aws_iam_role_policy_attachment.lambda_nomina_dlq_attachment" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/lambda_nomina.tf.aws_iam_policy.lambda_nomina_queue_policy" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/lambda_nomina.tf.aws_iam_policy.lambda_nomina_queue_policy" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/lambda_nomina.tf.aws_iam_role_policy_attachment.lambda_nomina_queue_policy_attachment" file="/lambda_nomina.tf"/>
 		<testcase name="[NONE][CKV_AWS_41] Ensure no hard coded AWS access key and secret key exists in provider" classname="/main.tf.aws.default" file="/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/vpc.tf.aws_subnet.subnet_a" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/vpc.tf.aws_subnet.subnet_b" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/vpc.tf.aws_security_group.lambda_sg" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/vpc.tf.aws_security_group.lambda_sg" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/vpc.tf.aws_security_group.lambda_sg" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/vpc.tf.aws_security_group.lambda_sg" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/vpc.tf.aws_security_group.lambda_sg" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/vpc.tf.aws_security_group.lambda_sg" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_66] Ensure that CloudWatch Log Group specifies retention days" classname="/vpc.tf.aws_cloudwatch_log_group.vpc_flow_log" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/vpc.tf.aws_cloudwatch_log_group.vpc_flow_log" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/vpc.tf.aws_cloudwatch_log_group.vpc_flow_log" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/vpc.tf.aws_kms_key.vpc_flow_log_key" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/vpc.tf.aws_kms_key.vpc_flow_log_key" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/vpc.tf.aws_kms_key.vpc_flow_log_key" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/vpc.tf.aws_iam_role.vpc_flow_log_role" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_60] Ensure IAM role allows only specific services or principals to assume it" classname="/vpc.tf.aws_iam_role.vpc_flow_log_role" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_61] Ensure AWS IAM policy does not allow assume role permission across all services" classname="/vpc.tf.aws_iam_role.vpc_flow_log_role" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_288] Ensure IAM policies does not allow data exfiltration" classname="/vpc.tf.aws_iam_role_policy.vpc_flow_log_policy" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/vpc.tf.aws_iam_role_policy.vpc_flow_log_policy" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_287] Ensure IAM policies does not allow credentials exposure" classname="/vpc.tf.aws_iam_role_policy.vpc_flow_log_policy" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_289] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/vpc.tf.aws_iam_role_policy.vpc_flow_log_policy" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_290] Ensure IAM policies does not allow write access without constraints" classname="/vpc.tf.aws_iam_role_policy.vpc_flow_log_policy" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/vpc.tf.aws_iam_role_policy.vpc_flow_log_policy" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_286] Ensure IAM policies does not allow privilege escalation" classname="/vpc.tf.aws_iam_role_policy.vpc_flow_log_policy" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_355] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/vpc.tf.aws_iam_role_policy.vpc_flow_log_policy" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/imagens3.tf.aws_iam_role.replication" file="/imagens3.tf"/>
 		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/lambda-process.tf.aws_iam_role.lambda_process_exec_role" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/lambda_auditoria.tf.aws_iam_role_policy_attachment.lambda_vpc_policy_attachment" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/lambda_auditoria.tf.aws_iam_role_policy_attachment.lambda_xray_policy_attachment" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/lambda_nomina.tf.aws_iam_role_policy_attachment.lambda_vpc_policy_attachment" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/lambda_nomina.tf.aws_iam_role_policy_attachment.lambda_xray_policy_attachment" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/vpc.tf.aws_iam_role.vpc_flow_log_role" file="/vpc.tf"/>
 		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
-		<testcase name="[NONE][CKV2_AWS_73] Ensure AWS SQS uses CMK not AWS default keys for encryption" classname="/lambda_nomina.tf.aws_sqs_queue.auditoria_queue" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/vpc.tf.aws_security_group.lambda_sg" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/vpc.tf.aws_route_table.public" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/imagens3.tf.aws_kms_key.s3_kms_key" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/lambda-process.tf.aws_kms_key.lambda_code_signing_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/lambda-process.tf.aws_kms_key.dynamodb_kms_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/lambda-process.tf.aws_kms_key.lambda_dlq_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/lambda-process.tf.aws_kms_key.lambda_env_vars_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/lambda-process.tf.aws_kms_key.cloudwatch_logs_key" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/lambda_auditoria.tf.aws_kms_key.lambda_env_vars_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/lambda_auditoria.tf.aws_kms_key.sqs_queue_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/lambda_auditoria.tf.aws_kms_key.lambda_dlq_key" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/lambda_nomina.tf.aws_kms_key.sqs_queue_key" file="/lambda_nomina.tf"/>
 		<testcase name="[NONE][CKV2_AWS_75] Ensure no open CORS policy" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf"/>
 		<testcase name="[NONE][CKV2_AWS_75] Ensure no open CORS policy" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf"/>
 		<testcase name="[NONE][CKV2_AWS_75] Ensure no open CORS policy" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf"/>
 		<testcase name="[NONE][CKV2_AWS_75] Ensure no open CORS policy" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf"/>
-		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/lambda-process.tf.aws_iam_policy.lambda_policy_process" file="/lambda-process.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/vpc.tf.aws_route_table.public" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV2_AWS_11] Ensure VPC flow logging is enabled in all VPCs" classname="/vpc.tf.aws_vpc.main" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_dlq_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/lambda_auditoria.tf.aws_iam_policy_document.lambda_auditoria_queue_policy_doc" file="/lambda_auditoria.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/lambda_empleado.tf.aws_iam_policy_document.lambda_empleado_dlq_policy_doc" file="/lambda_empleado.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_dlq_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/lambda_nomina.tf.aws_iam_policy_document.lambda_nomina_queue_policy_doc" file="/lambda_nomina.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/vpc.tf.aws_iam_role_policy.vpc_flow_log_policy" file="/vpc.tf"/>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf"/>
 		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf"/>
 		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf"/>
 		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
-		<testcase name="[NONE][CKV_AWS_119] Ensure DynamoDB Tables are encrypted using a KMS Customer Managed CMK" classname="/lambda-process.tf.aws_dynamodb_table.vision_clean_images" file="/lambda-process.tf">
-			<failure type="failure" message="Ensure DynamoDB Tables are encrypted using a KMS Customer Managed CMK">
-Resource: aws_dynamodb_table.vision_clean_images
-File: /lambda-process.tf: 21-42
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-52
-
-		21 | resource &quot;aws_dynamodb_table&quot; &quot;vision_clean_images&quot; {
-		22 |   name           = var.dynamodb_table_name
-		23 |   billing_mode   = &quot;PROVISIONED&quot;
-		24 |   read_capacity  = var.read_capacity
-		25 |   write_capacity = var.write_capacity
-		26 |   hash_key       = &quot;id&quot;
-		27 | 
-		28 |   attribute {
-		29 |     name = &quot;id&quot;
-		30 |     type = &quot;S&quot;
-		31 |   }
-		32 | 
-		33 |   ttl {
-		34 |     attribute_name = &quot;img_name&quot;
-		35 |     enabled        = false
-		36 |   }
-		37 | 
-		38 |   tags = {
-		39 |     Name        = var.dynamodb_table_name
-		40 |     Environment = &quot;dev&quot;
-		41 |   }
-		42 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_28] Ensure DynamoDB point in time recovery (backup) is enabled" classname="/lambda-process.tf.aws_dynamodb_table.vision_clean_images" file="/lambda-process.tf">
-			<failure type="failure" message="Ensure DynamoDB point in time recovery (backup) is enabled">
-Resource: aws_dynamodb_table.vision_clean_images
-File: /lambda-process.tf: 21-42
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-6
-
-		21 | resource &quot;aws_dynamodb_table&quot; &quot;vision_clean_images&quot; {
-		22 |   name           = var.dynamodb_table_name
-		23 |   billing_mode   = &quot;PROVISIONED&quot;
-		24 |   read_capacity  = var.read_capacity
-		25 |   write_capacity = var.write_capacity
-		26 |   hash_key       = &quot;id&quot;
-		27 | 
-		28 |   attribute {
-		29 |     name = &quot;id&quot;
-		30 |     type = &quot;S&quot;
-		31 |   }
-		32 | 
-		33 |   ttl {
-		34 |     attribute_name = &quot;img_name&quot;
-		35 |     enabled        = false
-		36 |   }
-		37 | 
-		38 |   tags = {
-		39 |     Name        = var.dynamodb_table_name
-		40 |     Environment = &quot;dev&quot;
-		41 |   }
-		42 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_272] Ensure AWS Lambda function is configured to validate code-signing" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf">
-			<failure type="failure" message="Ensure AWS Lambda function is configured to validate code-signing">
-Resource: aws_lambda_function.process
-File: /lambda-process.tf: 76-96
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-272
-
-		76 | resource &quot;aws_lambda_function&quot; &quot;process&quot; {
-		77 |   function_name    = var.lambda_function_name
-		78 |   handler          = var.lambda_handler
-		79 |   runtime          = var.lambda_runtime
-		80 |   role             = aws_iam_role.lambda_process_exec_role.arn
-		81 |   filename         = data.archive_file.lambda_process.output_path
-		82 |   source_code_hash = data.archive_file.lambda_process.output_base64sha256
-		83 | 
-		84 |   environment {
-		85 |     variables = {
-		86 |       HELLO = &quot;WORLD&quot;
-		87 |     }
-		88 |   }
-		89 | 
-		90 |   tags = {
-		91 |     Name        = var.lambda_function_name
-		92 |     Environment = &quot;dev&quot;
-		93 |   }
-		94 | 
-		95 |   depends_on = [aws_cloudwatch_log_group.lambda_logs]
-		96 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_117] Ensure that AWS Lambda function is configured inside a VPC" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured inside a VPC">
-Resource: aws_lambda_function.process
-File: /lambda-process.tf: 76-96
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
-
-		76 | resource &quot;aws_lambda_function&quot; &quot;process&quot; {
-		77 |   function_name    = var.lambda_function_name
-		78 |   handler          = var.lambda_handler
-		79 |   runtime          = var.lambda_runtime
-		80 |   role             = aws_iam_role.lambda_process_exec_role.arn
-		81 |   filename         = data.archive_file.lambda_process.output_path
-		82 |   source_code_hash = data.archive_file.lambda_process.output_base64sha256
-		83 | 
-		84 |   environment {
-		85 |     variables = {
-		86 |       HELLO = &quot;WORLD&quot;
-		87 |     }
-		88 |   }
-		89 | 
-		90 |   tags = {
-		91 |     Name        = var.lambda_function_name
-		92 |     Environment = &quot;dev&quot;
-		93 |   }
-		94 | 
-		95 |   depends_on = [aws_cloudwatch_log_group.lambda_logs]
-		96 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_115] Ensure that AWS Lambda function is configured for function-level concurrent execution limit" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured for function-level concurrent execution limit">
-Resource: aws_lambda_function.process
-File: /lambda-process.tf: 76-96
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
-
-		76 | resource &quot;aws_lambda_function&quot; &quot;process&quot; {
-		77 |   function_name    = var.lambda_function_name
-		78 |   handler          = var.lambda_handler
-		79 |   runtime          = var.lambda_runtime
-		80 |   role             = aws_iam_role.lambda_process_exec_role.arn
-		81 |   filename         = data.archive_file.lambda_process.output_path
-		82 |   source_code_hash = data.archive_file.lambda_process.output_base64sha256
-		83 | 
-		84 |   environment {
-		85 |     variables = {
-		86 |       HELLO = &quot;WORLD&quot;
-		87 |     }
-		88 |   }
-		89 | 
-		90 |   tags = {
-		91 |     Name        = var.lambda_function_name
-		92 |     Environment = &quot;dev&quot;
-		93 |   }
-		94 | 
-		95 |   depends_on = [aws_cloudwatch_log_group.lambda_logs]
-		96 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_116] Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)">
-Resource: aws_lambda_function.process
-File: /lambda-process.tf: 76-96
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
-
-		76 | resource &quot;aws_lambda_function&quot; &quot;process&quot; {
-		77 |   function_name    = var.lambda_function_name
-		78 |   handler          = var.lambda_handler
-		79 |   runtime          = var.lambda_runtime
-		80 |   role             = aws_iam_role.lambda_process_exec_role.arn
-		81 |   filename         = data.archive_file.lambda_process.output_path
-		82 |   source_code_hash = data.archive_file.lambda_process.output_base64sha256
-		83 | 
-		84 |   environment {
-		85 |     variables = {
-		86 |       HELLO = &quot;WORLD&quot;
-		87 |     }
-		88 |   }
-		89 | 
-		90 |   tags = {
-		91 |     Name        = var.lambda_function_name
-		92 |     Environment = &quot;dev&quot;
-		93 |   }
-		94 | 
-		95 |   depends_on = [aws_cloudwatch_log_group.lambda_logs]
-		96 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_50] X-Ray tracing is enabled for Lambda" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf">
-			<failure type="failure" message="X-Ray tracing is enabled for Lambda">
-Resource: aws_lambda_function.process
-File: /lambda-process.tf: 76-96
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-4
-
-		76 | resource &quot;aws_lambda_function&quot; &quot;process&quot; {
-		77 |   function_name    = var.lambda_function_name
-		78 |   handler          = var.lambda_handler
-		79 |   runtime          = var.lambda_runtime
-		80 |   role             = aws_iam_role.lambda_process_exec_role.arn
-		81 |   filename         = data.archive_file.lambda_process.output_path
-		82 |   source_code_hash = data.archive_file.lambda_process.output_base64sha256
-		83 | 
-		84 |   environment {
-		85 |     variables = {
-		86 |       HELLO = &quot;WORLD&quot;
-		87 |     }
-		88 |   }
-		89 | 
-		90 |   tags = {
-		91 |     Name        = var.lambda_function_name
-		92 |     Environment = &quot;dev&quot;
-		93 |   }
-		94 | 
-		95 |   depends_on = [aws_cloudwatch_log_group.lambda_logs]
-		96 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_173] Check encryption settings for Lambda environmental variable" classname="/lambda-process.tf.aws_lambda_function.process" file="/lambda-process.tf">
-			<failure type="failure" message="Check encryption settings for Lambda environmental variable">
-Resource: aws_lambda_function.process
-File: /lambda-process.tf: 76-96
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-5
-
-		76 | resource &quot;aws_lambda_function&quot; &quot;process&quot; {
-		77 |   function_name    = var.lambda_function_name
-		78 |   handler          = var.lambda_handler
-		79 |   runtime          = var.lambda_runtime
-		80 |   role             = aws_iam_role.lambda_process_exec_role.arn
-		81 |   filename         = data.archive_file.lambda_process.output_path
-		82 |   source_code_hash = data.archive_file.lambda_process.output_base64sha256
-		83 | 
-		84 |   environment {
-		85 |     variables = {
-		86 |       HELLO = &quot;WORLD&quot;
-		87 |     }
-		88 |   }
-		89 | 
-		90 |   tags = {
-		91 |     Name        = var.lambda_function_name
-		92 |     Environment = &quot;dev&quot;
-		93 |   }
-		94 | 
-		95 |   depends_on = [aws_cloudwatch_log_group.lambda_logs]
-		96 | }
-</failure>
-		</testcase>
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf"/>
 		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/lambda-process.tf.aws_cloudwatch_log_group.lambda_logs" file="/lambda-process.tf">
 			<failure type="failure" message="Ensure CloudWatch log groups retains logs for at least 1 year">
 Resource: aws_cloudwatch_log_group.lambda_logs
-File: /lambda-process.tf: 98-106
+File: /lambda-process.tf: 405-414
 Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-338
 
-		98  | resource &quot;aws_cloudwatch_log_group&quot; &quot;lambda_logs&quot; {
-		99  |   name              = &quot;/aws/lambda/${var.lambda_function_name}&quot;
-		100 |   retention_in_days = 7
-		101 | 
-		102 |   tags = {
-		103 |     Environment = &quot;dev&quot;
-		104 |     Function    = var.lambda_function_name
-		105 |   }
-		106 | }
+		405 | resource &quot;aws_cloudwatch_log_group&quot; &quot;lambda_logs&quot; {
+		406 |   name              = &quot;/aws/lambda/${var.lambda_function_name}&quot;
+		407 |   retention_in_days = var.log_retention_days
+		408 |   kms_key_id        = aws_kms_key.cloudwatch_logs_key.arn
+		409 |   
+		410 |   tags = {
+		411 |     Environment = &quot;dev&quot;
+		412 |     Function    = var.lambda_function_name
+		413 |   }
+		414 | }
 </failure>
 		</testcase>
-		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/lambda-process.tf.aws_cloudwatch_log_group.lambda_logs" file="/lambda-process.tf">
-			<failure type="failure" message="Ensure that CloudWatch Log Group is encrypted by KMS">
-Resource: aws_cloudwatch_log_group.lambda_logs
-File: /lambda-process.tf: 98-106
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf">
+			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
+Resource: aws_s3_bucket.access_logs
+File: /imagens3.tf: 132-134
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
 
-		98  | resource &quot;aws_cloudwatch_log_group&quot; &quot;lambda_logs&quot; {
-		99  |   name              = &quot;/aws/lambda/${var.lambda_function_name}&quot;
-		100 |   retention_in_days = 7
-		101 | 
-		102 |   tags = {
-		103 |     Environment = &quot;dev&quot;
-		104 |     Function    = var.lambda_function_name
-		105 |   }
-		106 | }
+		132 | resource &quot;aws_s3_bucket&quot; &quot;access_logs&quot; {
+		133 |   bucket = &quot;${aws_s3_bucket.bucket.id}-access-logs&quot;
+		134 | }
 </failure>
 		</testcase>
-		<testcase name="[NONE][CKV_AWS_272] Ensure AWS Lambda function is configured to validate code-signing" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf">
-			<failure type="failure" message="Ensure AWS Lambda function is configured to validate code-signing">
-Resource: aws_lambda_function.auditoria
-File: /lambda_auditoria.tf: 7-19
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-272
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;auditoria&quot; {
-		8  |   function_name = &quot;auditoria&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_auditoria.output_path
-		13 |   source_code_hash = data.archive_file.lambda_auditoria.output_base64sha256
-		14 | 
-		15 |   tags = {
-		16 |     Name = &quot;auditoria&quot;
-		17 |     Environment = &quot;dev&quot;
-		18 |   }
-		19 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_117] Ensure that AWS Lambda function is configured inside a VPC" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured inside a VPC">
-Resource: aws_lambda_function.auditoria
-File: /lambda_auditoria.tf: 7-19
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;auditoria&quot; {
-		8  |   function_name = &quot;auditoria&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_auditoria.output_path
-		13 |   source_code_hash = data.archive_file.lambda_auditoria.output_base64sha256
-		14 | 
-		15 |   tags = {
-		16 |     Name = &quot;auditoria&quot;
-		17 |     Environment = &quot;dev&quot;
-		18 |   }
-		19 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_115] Ensure that AWS Lambda function is configured for function-level concurrent execution limit" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured for function-level concurrent execution limit">
-Resource: aws_lambda_function.auditoria
-File: /lambda_auditoria.tf: 7-19
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;auditoria&quot; {
-		8  |   function_name = &quot;auditoria&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_auditoria.output_path
-		13 |   source_code_hash = data.archive_file.lambda_auditoria.output_base64sha256
-		14 | 
-		15 |   tags = {
-		16 |     Name = &quot;auditoria&quot;
-		17 |     Environment = &quot;dev&quot;
-		18 |   }
-		19 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_116] Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)">
-Resource: aws_lambda_function.auditoria
-File: /lambda_auditoria.tf: 7-19
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;auditoria&quot; {
-		8  |   function_name = &quot;auditoria&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_auditoria.output_path
-		13 |   source_code_hash = data.archive_file.lambda_auditoria.output_base64sha256
-		14 | 
-		15 |   tags = {
-		16 |     Name = &quot;auditoria&quot;
-		17 |     Environment = &quot;dev&quot;
-		18 |   }
-		19 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_50] X-Ray tracing is enabled for Lambda" classname="/lambda_auditoria.tf.aws_lambda_function.auditoria" file="/lambda_auditoria.tf">
-			<failure type="failure" message="X-Ray tracing is enabled for Lambda">
-Resource: aws_lambda_function.auditoria
-File: /lambda_auditoria.tf: 7-19
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-4
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;auditoria&quot; {
-		8  |   function_name = &quot;auditoria&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_auditoria.output_path
-		13 |   source_code_hash = data.archive_file.lambda_auditoria.output_base64sha256
-		14 | 
-		15 |   tags = {
-		16 |     Name = &quot;auditoria&quot;
-		17 |     Environment = &quot;dev&quot;
-		18 |   }
-		19 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_272] Ensure AWS Lambda function is configured to validate code-signing" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf">
-			<failure type="failure" message="Ensure AWS Lambda function is configured to validate code-signing">
-Resource: aws_lambda_function.empleado
-File: /lambda_empleado.tf: 7-25
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-272
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;empleado&quot; {
-		8  |   function_name = &quot;empleado&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_empleado.output_path
-		13 |   source_code_hash = data.archive_file.lambda_empleado.output_base64sha256
-		14 | 
-		15 |   environment {
-		16 |     variables = {
-		17 |       DYNAMO_TABLE = var.dynamodb_table_name
-		18 |     }
-		19 |   }
-		20 | 
-		21 |   tags = {
-		22 |     Name = &quot;empleado&quot;
-		23 |     Environment = &quot;dev&quot;
-		24 |   }
-		25 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_117] Ensure that AWS Lambda function is configured inside a VPC" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured inside a VPC">
-Resource: aws_lambda_function.empleado
-File: /lambda_empleado.tf: 7-25
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;empleado&quot; {
-		8  |   function_name = &quot;empleado&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_empleado.output_path
-		13 |   source_code_hash = data.archive_file.lambda_empleado.output_base64sha256
-		14 | 
-		15 |   environment {
-		16 |     variables = {
-		17 |       DYNAMO_TABLE = var.dynamodb_table_name
-		18 |     }
-		19 |   }
-		20 | 
-		21 |   tags = {
-		22 |     Name = &quot;empleado&quot;
-		23 |     Environment = &quot;dev&quot;
-		24 |   }
-		25 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_115] Ensure that AWS Lambda function is configured for function-level concurrent execution limit" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured for function-level concurrent execution limit">
-Resource: aws_lambda_function.empleado
-File: /lambda_empleado.tf: 7-25
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;empleado&quot; {
-		8  |   function_name = &quot;empleado&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_empleado.output_path
-		13 |   source_code_hash = data.archive_file.lambda_empleado.output_base64sha256
-		14 | 
-		15 |   environment {
-		16 |     variables = {
-		17 |       DYNAMO_TABLE = var.dynamodb_table_name
-		18 |     }
-		19 |   }
-		20 | 
-		21 |   tags = {
-		22 |     Name = &quot;empleado&quot;
-		23 |     Environment = &quot;dev&quot;
-		24 |   }
-		25 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_116] Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)">
-Resource: aws_lambda_function.empleado
-File: /lambda_empleado.tf: 7-25
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;empleado&quot; {
-		8  |   function_name = &quot;empleado&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_empleado.output_path
-		13 |   source_code_hash = data.archive_file.lambda_empleado.output_base64sha256
-		14 | 
-		15 |   environment {
-		16 |     variables = {
-		17 |       DYNAMO_TABLE = var.dynamodb_table_name
-		18 |     }
-		19 |   }
-		20 | 
-		21 |   tags = {
-		22 |     Name = &quot;empleado&quot;
-		23 |     Environment = &quot;dev&quot;
-		24 |   }
-		25 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_50] X-Ray tracing is enabled for Lambda" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf">
-			<failure type="failure" message="X-Ray tracing is enabled for Lambda">
-Resource: aws_lambda_function.empleado
-File: /lambda_empleado.tf: 7-25
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-4
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;empleado&quot; {
-		8  |   function_name = &quot;empleado&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_empleado.output_path
-		13 |   source_code_hash = data.archive_file.lambda_empleado.output_base64sha256
-		14 | 
-		15 |   environment {
-		16 |     variables = {
-		17 |       DYNAMO_TABLE = var.dynamodb_table_name
-		18 |     }
-		19 |   }
-		20 | 
-		21 |   tags = {
-		22 |     Name = &quot;empleado&quot;
-		23 |     Environment = &quot;dev&quot;
-		24 |   }
-		25 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_173] Check encryption settings for Lambda environmental variable" classname="/lambda_empleado.tf.aws_lambda_function.empleado" file="/lambda_empleado.tf">
-			<failure type="failure" message="Check encryption settings for Lambda environmental variable">
-Resource: aws_lambda_function.empleado
-File: /lambda_empleado.tf: 7-25
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-5
-
-		7  | resource &quot;aws_lambda_function&quot; &quot;empleado&quot; {
-		8  |   function_name = &quot;empleado&quot;
-		9  |   handler       = var.lambda_handler
-		10 |   runtime       = var.lambda_runtime
-		11 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		12 |   filename      = data.archive_file.lambda_empleado.output_path
-		13 |   source_code_hash = data.archive_file.lambda_empleado.output_base64sha256
-		14 | 
-		15 |   environment {
-		16 |     variables = {
-		17 |       DYNAMO_TABLE = var.dynamodb_table_name
-		18 |     }
-		19 |   }
-		20 | 
-		21 |   tags = {
-		22 |     Name = &quot;empleado&quot;
-		23 |     Environment = &quot;dev&quot;
-		24 |   }
-		25 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/lambda_nomina.tf.aws_sqs_queue.auditoria_queue" file="/lambda_nomina.tf">
-			<failure type="failure" message="Ensure all data stored in the SQS queue is encrypted">
-Resource: aws_sqs_queue.auditoria_queue
-File: /lambda_nomina.tf: 1-3
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-16-encrypt-sqs-queue
-
-		1 | resource &quot;aws_sqs_queue&quot; &quot;auditoria_queue&quot; {
-		2 |   name = &quot;auditoria-queue&quot;
-		3 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_272] Ensure AWS Lambda function is configured to validate code-signing" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf">
-			<failure type="failure" message="Ensure AWS Lambda function is configured to validate code-signing">
-Resource: aws_lambda_function.nomina
-File: /lambda_nomina.tf: 11-29
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-272
-
-		11 | resource &quot;aws_lambda_function&quot; &quot;nomina&quot; {
-		12 |   function_name = &quot;nomina&quot;
-		13 |   handler       = var.lambda_handler
-		14 |   runtime       = var.lambda_runtime
-		15 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		16 |   filename      = data.archive_file.lambda_nomina.output_path
-		17 |   source_code_hash = data.archive_file.lambda_nomina.output_base64sha256
-		18 | 
-		19 |   environment {
-		20 |     variables = {
-		21 |       QUEUE_URL = aws_sqs_queue.auditoria_queue.id
-		22 |     }
-		23 |   }
-		24 | 
-		25 |   tags = {
-		26 |     Name = &quot;nomina&quot;
-		27 |     Environment = &quot;dev&quot;
-		28 |   }
-		29 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_117] Ensure that AWS Lambda function is configured inside a VPC" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured inside a VPC">
-Resource: aws_lambda_function.nomina
-File: /lambda_nomina.tf: 11-29
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
-
-		11 | resource &quot;aws_lambda_function&quot; &quot;nomina&quot; {
-		12 |   function_name = &quot;nomina&quot;
-		13 |   handler       = var.lambda_handler
-		14 |   runtime       = var.lambda_runtime
-		15 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		16 |   filename      = data.archive_file.lambda_nomina.output_path
-		17 |   source_code_hash = data.archive_file.lambda_nomina.output_base64sha256
-		18 | 
-		19 |   environment {
-		20 |     variables = {
-		21 |       QUEUE_URL = aws_sqs_queue.auditoria_queue.id
-		22 |     }
-		23 |   }
-		24 | 
-		25 |   tags = {
-		26 |     Name = &quot;nomina&quot;
-		27 |     Environment = &quot;dev&quot;
-		28 |   }
-		29 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_115] Ensure that AWS Lambda function is configured for function-level concurrent execution limit" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured for function-level concurrent execution limit">
-Resource: aws_lambda_function.nomina
-File: /lambda_nomina.tf: 11-29
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
-
-		11 | resource &quot;aws_lambda_function&quot; &quot;nomina&quot; {
-		12 |   function_name = &quot;nomina&quot;
-		13 |   handler       = var.lambda_handler
-		14 |   runtime       = var.lambda_runtime
-		15 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		16 |   filename      = data.archive_file.lambda_nomina.output_path
-		17 |   source_code_hash = data.archive_file.lambda_nomina.output_base64sha256
-		18 | 
-		19 |   environment {
-		20 |     variables = {
-		21 |       QUEUE_URL = aws_sqs_queue.auditoria_queue.id
-		22 |     }
-		23 |   }
-		24 | 
-		25 |   tags = {
-		26 |     Name = &quot;nomina&quot;
-		27 |     Environment = &quot;dev&quot;
-		28 |   }
-		29 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_116] Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf">
-			<failure type="failure" message="Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)">
-Resource: aws_lambda_function.nomina
-File: /lambda_nomina.tf: 11-29
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
-
-		11 | resource &quot;aws_lambda_function&quot; &quot;nomina&quot; {
-		12 |   function_name = &quot;nomina&quot;
-		13 |   handler       = var.lambda_handler
-		14 |   runtime       = var.lambda_runtime
-		15 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		16 |   filename      = data.archive_file.lambda_nomina.output_path
-		17 |   source_code_hash = data.archive_file.lambda_nomina.output_base64sha256
-		18 | 
-		19 |   environment {
-		20 |     variables = {
-		21 |       QUEUE_URL = aws_sqs_queue.auditoria_queue.id
-		22 |     }
-		23 |   }
-		24 | 
-		25 |   tags = {
-		26 |     Name = &quot;nomina&quot;
-		27 |     Environment = &quot;dev&quot;
-		28 |   }
-		29 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_50] X-Ray tracing is enabled for Lambda" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf">
-			<failure type="failure" message="X-Ray tracing is enabled for Lambda">
-Resource: aws_lambda_function.nomina
-File: /lambda_nomina.tf: 11-29
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-4
-
-		11 | resource &quot;aws_lambda_function&quot; &quot;nomina&quot; {
-		12 |   function_name = &quot;nomina&quot;
-		13 |   handler       = var.lambda_handler
-		14 |   runtime       = var.lambda_runtime
-		15 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		16 |   filename      = data.archive_file.lambda_nomina.output_path
-		17 |   source_code_hash = data.archive_file.lambda_nomina.output_base64sha256
-		18 | 
-		19 |   environment {
-		20 |     variables = {
-		21 |       QUEUE_URL = aws_sqs_queue.auditoria_queue.id
-		22 |     }
-		23 |   }
-		24 | 
-		25 |   tags = {
-		26 |     Name = &quot;nomina&quot;
-		27 |     Environment = &quot;dev&quot;
-		28 |   }
-		29 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_173] Check encryption settings for Lambda environmental variable" classname="/lambda_nomina.tf.aws_lambda_function.nomina" file="/lambda_nomina.tf">
-			<failure type="failure" message="Check encryption settings for Lambda environmental variable">
-Resource: aws_lambda_function.nomina
-File: /lambda_nomina.tf: 11-29
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-serverless-policies/bc-aws-serverless-5
-
-		11 | resource &quot;aws_lambda_function&quot; &quot;nomina&quot; {
-		12 |   function_name = &quot;nomina&quot;
-		13 |   handler       = var.lambda_handler
-		14 |   runtime       = var.lambda_runtime
-		15 |   role          = aws_iam_role.lambda_process_exec_role.arn
-		16 |   filename      = data.archive_file.lambda_nomina.output_path
-		17 |   source_code_hash = data.archive_file.lambda_nomina.output_base64sha256
-		18 | 
-		19 |   environment {
-		20 |     variables = {
-		21 |       QUEUE_URL = aws_sqs_queue.auditoria_queue.id
-		22 |     }
-		23 |   }
-		24 | 
-		25 |   tags = {
-		26 |     Name = &quot;nomina&quot;
-		27 |     Environment = &quot;dev&quot;
-		28 |   }
-		29 | }
-</failure>
-		</testcase>
-		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf">
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf">
 			<failure type="failure" message="Ensure all data stored in the S3 bucket have versioning enabled">
-Resource: aws_s3_bucket.bucket
-File: /imagens3.tf: 1-3
+Resource: aws_s3_bucket.access_logs
+File: /imagens3.tf: 132-134
 Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning
 
-		1 | resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; {
-		2 |    bucket = &quot;process-bucket-proyecto-imagen&quot;
-		3 |     }</failure>
+		132 | resource &quot;aws_s3_bucket&quot; &quot;access_logs&quot; {
+		133 |   bucket = &quot;${aws_s3_bucket.bucket.id}-access-logs&quot;
+		134 | }
+</failure>
 		</testcase>
-		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf">
-			<failure type="failure" message="Ensure that S3 bucket has cross-region replication enabled">
-Resource: aws_s3_bucket.bucket
-File: /imagens3.tf: 1-3
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/lambda_nomina.tf.aws_kms_key.lambda_env_vars_key" file="/lambda_nomina.tf">
+			<failure type="failure" message="Ensure KMS key Policy is defined">
+Resource: aws_kms_key.lambda_env_vars_key
+File: /lambda_nomina.tf: 107-116
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-64
 
-		1 | resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; {
-		2 |    bucket = &quot;process-bucket-proyecto-imagen&quot;
-		3 |     }</failure>
+		107 | resource &quot;aws_kms_key&quot; &quot;lambda_env_vars_key&quot; {
+		108 |   description             = &quot;KMS Key for Lambda environment variables encryption&quot;
+		109 |   enable_key_rotation     = true
+		110 |   deletion_window_in_days = 10
+		111 | 
+		112 |   tags = {
+		113 |     Name        = &quot;lambda-env-vars-key&quot;
+		114 |     Environment = &quot;dev&quot;
+		115 |   }
+		116 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/vpc.tf.aws_kms_key.vpc_flow_log_key" file="/vpc.tf">
+			<failure type="failure" message="Ensure KMS key Policy is defined">
+Resource: aws_kms_key.vpc_flow_log_key
+File: /vpc.tf: 146-150
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-64
+
+		146 | resource &quot;aws_kms_key&quot; &quot;vpc_flow_log_key&quot; {
+		147 |   description             = &quot;KMS key for VPC Flow Log encryption&quot;
+		148 |   enable_key_rotation     = true
+		149 |   deletion_window_in_days = 30
+		150 | }
+</failure>
 		</testcase>
 		<testcase name="[NONE][CKV2_AWS_16] Ensure that Auto Scaling is enabled on your DynamoDB tables" classname="/lambda-process.tf.aws_dynamodb_table.vision_clean_images" file="/lambda-process.tf">
 			<failure type="failure" message="Ensure that Auto Scaling is enabled on your DynamoDB tables">
 Resource: aws_dynamodb_table.vision_clean_images
-File: /lambda-process.tf: 21-42
+File: /lambda-process.tf: 177-207
 Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-auto-scaling-is-enabled-on-your-dynamodb-tables
 
-		21 | resource &quot;aws_dynamodb_table&quot; &quot;vision_clean_images&quot; {
-		22 |   name           = var.dynamodb_table_name
-		23 |   billing_mode   = &quot;PROVISIONED&quot;
-		24 |   read_capacity  = var.read_capacity
-		25 |   write_capacity = var.write_capacity
-		26 |   hash_key       = &quot;id&quot;
-		27 | 
-		28 |   attribute {
-		29 |     name = &quot;id&quot;
-		30 |     type = &quot;S&quot;
-		31 |   }
-		32 | 
-		33 |   ttl {
-		34 |     attribute_name = &quot;img_name&quot;
-		35 |     enabled        = false
-		36 |   }
-		37 | 
-		38 |   tags = {
-		39 |     Name        = var.dynamodb_table_name
-		40 |     Environment = &quot;dev&quot;
-		41 |   }
-		42 | }
+		177 | resource &quot;aws_dynamodb_table&quot; &quot;vision_clean_images&quot; {
+		178 |   name           = var.dynamodb_table_name
+		179 |   billing_mode   = &quot;PROVISIONED&quot;
+		180 |   read_capacity  = var.read_capacity
+		181 |   write_capacity = var.write_capacity
+		182 |   hash_key       = &quot;id&quot;
+		183 |   
+		184 |   server_side_encryption {
+		185 |     enabled     = true
+		186 |     kms_key_arn = aws_kms_key.dynamodb_kms_key.arn
+		187 |   }
+		188 |   
+		189 |   attribute {
+		190 |     name = &quot;id&quot;
+		191 |     type = &quot;S&quot;
+		192 |   }
+		193 | 
+		194 |   point_in_time_recovery {
+		195 |     enabled = true
+		196 |   }
+		197 | 
+		198 |   ttl {
+		199 |     attribute_name = &quot;img_name&quot;
+		200 |     enabled        = false
+		201 |   }
+		202 | 
+		203 |   tags = {
+		204 |     Name        = var.dynamodb_table_name
+		205 |     Environment = &quot;dev&quot;
+		206 |   }
+		207 | }
 </failure>
 		</testcase>
-		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf">
+		<testcase name="[NONE][CKV2_AWS_12] Ensure the default security group of every VPC restricts all traffic" classname="/vpc.tf.aws_vpc.main" file="/vpc.tf">
+			<failure type="failure" message="Ensure the default security group of every VPC restricts all traffic">
+Resource: aws_vpc.main
+File: /vpc.tf: 2-11
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-4
+
+		2  | resource &quot;aws_vpc&quot; &quot;main&quot; {
+		3  |   cidr_block           = &quot;10.0.0.0/16&quot;
+		4  |   enable_dns_support   = true
+		5  |   enable_dns_hostnames = true
+		6  | 
+		7  |   tags = {
+		8  |     Name        = &quot;main-vpc&quot;
+		9  |     Environment = &quot;dev&quot;
+		10 |   }
+		11 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf">
 			<failure type="failure" message="Ensure that S3 bucket has a Public Access block">
-Resource: aws_s3_bucket.bucket
-File: /imagens3.tf: 1-3
+Resource: aws_s3_bucket.access_logs
+File: /imagens3.tf: 132-134
 Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/s3-bucket-should-have-public-access-blocks-defaults-to-false-if-the-public-access-block-is-not-attached
 
-		1 | resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; {
-		2 |    bucket = &quot;process-bucket-proyecto-imagen&quot;
-		3 |     }</failure>
+		132 | resource &quot;aws_s3_bucket&quot; &quot;access_logs&quot; {
+		133 |   bucket = &quot;${aws_s3_bucket.bucket.id}-access-logs&quot;
+		134 | }
+</failure>
 		</testcase>
-		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf">
-			<failure type="failure" message="Ensure the S3 bucket has access logging enabled">
-Resource: aws_s3_bucket.bucket
-File: /imagens3.tf: 1-3
-Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
-
-		1 | resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; {
-		2 |    bucket = &quot;process-bucket-proyecto-imagen&quot;
-		3 |     }</failure>
-		</testcase>
-		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf">
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf">
 			<failure type="failure" message="Ensure that an S3 bucket has a lifecycle configuration">
-Resource: aws_s3_bucket.bucket
-File: /imagens3.tf: 1-3
+Resource: aws_s3_bucket.access_logs
+File: /imagens3.tf: 132-134
 Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-61
 
-		1 | resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; {
-		2 |    bucket = &quot;process-bucket-proyecto-imagen&quot;
-		3 |     }</failure>
+		132 | resource &quot;aws_s3_bucket&quot; &quot;access_logs&quot; {
+		133 |   bucket = &quot;${aws_s3_bucket.bucket.id}-access-logs&quot;
+		134 | }
+</failure>
 		</testcase>
-		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/imagens3.tf.aws_s3_bucket.bucket" file="/imagens3.tf">
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/imagens3.tf.aws_s3_bucket.access_logs" file="/imagens3.tf">
 			<failure type="failure" message="Ensure that S3 buckets are encrypted with KMS by default">
-Resource: aws_s3_bucket.bucket
-File: /imagens3.tf: 1-3
+Resource: aws_s3_bucket.access_logs
+File: /imagens3.tf: 132-134
 Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
 
-		1 | resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; {
-		2 |    bucket = &quot;process-bucket-proyecto-imagen&quot;
-		3 |     }</failure>
+		132 | resource &quot;aws_s3_bucket&quot; &quot;access_logs&quot; {
+		133 |   bucket = &quot;${aws_s3_bucket.bucket.id}-access-logs&quot;
+		134 | }
+</failure>
 		</testcase>
 	</testsuite>
 </testsuites>
