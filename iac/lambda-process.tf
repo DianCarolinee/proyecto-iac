@@ -4,6 +4,16 @@ data "archive_file" "lambda_process" {
   output_path = "${path.module}/bin/process.zip"
 }
 
+resource "aws_kms_key" "dynamodb_kms_key" {
+  description             = "CMK para cifrar la tabla DynamoDB vision_clean_images"
+  deletion_window_in_days = 10
+  enable_key_rotation     = true
+  tags = {
+    Environment = "dev"
+    Purpose     = "dynamodb-encryption"
+  }
+}
+
 resource "aws_iam_role" "lambda_process_exec_role" {
   name = "${var.lambda_function_name}_exec_role"
   assume_role_policy = jsonencode({
@@ -24,6 +34,11 @@ resource "aws_dynamodb_table" "vision_clean_images" {
   read_capacity  = var.read_capacity
   write_capacity = var.write_capacity
   hash_key       = "id"
+
+  server_side_encryption {
+    enabled     = true
+    kms_key_arn = aws_kms_key.dynamodb_kms_key.arn
+  }
 
   attribute {
     name = "id"
