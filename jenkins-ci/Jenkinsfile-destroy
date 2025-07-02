@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    environment {
+        TF_DIR = "iac"
+        AWS_REGION = "us-east-2"
+    }
+
+    stages {
+
+        stage('Clonar código') {
+            steps {
+                git branch: 'main', url: 'https://github.com/DianCarolinee/proyecto-iac.git'
+                sh 'ls -la'  // Para verificar los archivos del repo
+            }
+        }
+
+        stage('Terraform Init') {
+            steps {
+                dir("${TF_DIR}") {
+                    sh 'terraform init'
+                }
+            }
+        }
+
+        stage('Terraform Destroy') {
+            steps {
+                dir("${TF_DIR}") {
+                    withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: 'aws-creds'
+                    ]]) {
+                        sh 'terraform destroy -auto-approve'
+                    }
+                }
+            }
+        }
+    }
+}
