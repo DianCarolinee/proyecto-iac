@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clonar código') {
             steps {
-                git branch: 'main', url: 'https://github.com/TU-USUARIO/TU-REPO.git'
+                git branch: 'main', url: 'https://github.com/DianCarolinee/proyecto-iac.git'
             }
         }
 
