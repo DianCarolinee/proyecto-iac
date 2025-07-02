@@ -107,7 +107,7 @@ resource "aws_cloudwatch_log_group" "lambda_logs" {
 
   lifecycle {
     create_before_destroy = true
-    ignore_changes        = [name]
+    ignore_changes = [name]
   }
 
   tags = {
@@ -115,6 +115,7 @@ resource "aws_cloudwatch_log_group" "lambda_logs" {
     Function    = var.lambda_function_name
   }
 }
+
 
 resource "aws_lambda_permission" "allow_s3" {
   statement_id  = "AllowS3"

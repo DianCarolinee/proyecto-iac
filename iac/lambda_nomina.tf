@@ -37,9 +37,6 @@ resource "aws_lambda_function" "nomina" {
   # Configuración de code signing
   code_signing_config_arn = aws_lambda_code_signing_config.nomina_code_signing.arn
 
-  # Límite de ejecución concurrente
-  reserved_concurrent_executions = var.lambda_concurrency
-
   # Configuración de Dead Letter Queue
   dead_letter_config {
     target_arn = aws_sqs_queue.nomina_dlq.arn
@@ -215,5 +212,3 @@ resource "aws_iam_role_policy_attachment" "lambda_nomina_queue_policy_attachment
   role       = aws_iam_role.lambda_process_exec_role.name
   policy_arn = aws_iam_policy.lambda_nomina_queue_policy.arn
 }
-
-data "aws_caller_identity" "current" {}

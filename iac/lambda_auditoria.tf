@@ -25,7 +25,6 @@ resource "aws_iam_role_policy_attachment" "lambda_auditoria_sqs_attachment" {
   policy_arn = aws_iam_policy.lambda_auditoria_sqs_policy.arn
 }
 
-
 resource "aws_lambda_function" "auditoria" {
   function_name = "auditoria"
   handler       = var.lambda_handler
@@ -45,4 +44,4 @@ resource "aws_lambda_event_source_mapping" "sqs_to_auditoria" {
   function_name    = aws_lambda_function.auditoria.arn
   batch_size       = 1
   enabled          = true
-}
+}  
