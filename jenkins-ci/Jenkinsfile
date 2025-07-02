@@ -7,15 +7,34 @@ pipeline {
     }
 
     stages {
+
         stage('Clonar código') {
             steps {
                 git branch: 'main', url: 'https://github.com/DianCarolinee/proyecto-iac.git'
+                sh 'ls -la'  // Verifica que los directorios están presentes
+            }
+        }
+
+        stage('Verificar carpetas Lambda') {
+            steps {
+                sh '''
+                for folder in auditoria empleado nomina process; do
+                    if [ ! -d "$folder" ]; then
+                        echo " Carpeta $folder no encontrada"
+                        exit 1
+                    else
+                        echo " Carpeta $folder verificada"
+                    fi
+                done
+                '''
             }
         }
 
         stage('Empaquetar Lambdas') {
             steps {
                 sh '''
+                mkdir -p iac/bin
+
                 cd auditoria && zip -r ../iac/bin/auditoria.zip . && cd ..
                 cd empleado && zip -r ../iac/bin/empleado.zip . && cd ..
                 cd nomina && zip -r ../iac/bin/nomina.zip . && cd ..
@@ -35,7 +54,10 @@ pipeline {
         stage('Terraform Plan & Apply') {
             steps {
                 dir("${TF_DIR}") {
-                    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-creds']]) {
+                    withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: 'aws-creds'
+                    ]]) {
                         sh 'terraform apply -auto-approve'
                     }
                 }
