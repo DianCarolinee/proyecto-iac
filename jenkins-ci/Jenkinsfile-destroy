@@ -11,7 +11,7 @@ pipeline {
         stage('Clonar código') {
             steps {
                 git branch: 'main', url: 'https://github.com/DianCarolinee/proyecto-iac.git'
-                sh 'ls -la'  // Para verificar los archivos del repo
+                sh 'ls -la'
             }
         }
 
@@ -19,6 +19,24 @@ pipeline {
             steps {
                 dir("${TF_DIR}") {
                     sh 'terraform init'
+                }
+            }
+        }
+
+        stage('Verificar estado') {
+            steps {
+                dir("${TF_DIR}") {
+                    sh '''
+                    echo "Archivos en el directorio actual:"
+                    ls -la
+
+                    echo "Contenido de terraform.tfstate:"
+                    if [ -f terraform.tfstate ]; then
+                        cat terraform.tfstate | head -n 20
+                    else
+                        echo "No existe terraform.tfstate. No se han aplicado cambios aún."
+                    fi
+                    '''
                 }
             }
         }
