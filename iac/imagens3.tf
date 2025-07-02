@@ -106,11 +106,38 @@ resource "aws_sns_topic" "access_logs_notifications" {
   name = "s3-access-logs-notifications"
 }
 
+resource "aws_sns_topic_policy" "access_logs_notifications_policy" {
+  arn = aws_sns_topic.access_logs_notifications.arn
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Sid       = "AllowS3Publish",
+        Effect    = "Allow",
+        Principal = {
+          Service = "s3.amazonaws.com"
+        },
+        Action    = "SNS:Publish",
+        Resource  = aws_sns_topic.access_logs_notifications.arn,
+        Condition = {
+          ArnLike = {
+            "aws:SourceArn" = aws_s3_bucket.access_logs.arn
+          }
+        }
+      }
+    ]
+  })
+}
+
 resource "aws_s3_bucket_notification" "access_logs_notification" {
   bucket = aws_s3_bucket.access_logs.id
+
   topic {
     topic_arn     = aws_sns_topic.access_logs_notifications.arn
     events        = ["s3:ObjectCreated:*"]
     filter_suffix = ".log"
   }
+
+  depends_on = [aws_sns_topic_policy.access_logs_notifications_policy]
 }
